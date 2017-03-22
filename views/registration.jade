@@ -4,24 +4,49 @@ block content
   h1 Registration Person
   form.form-horizontal
     fieldset
-      legend Legend
-      |     
+      legend Анкета 
+
       .form-group
+        label.col-lg-2.control-label(for='inputName') Имя 
+        .col-lg-10
+          input#inputName.form-control(name='name', type='text', placeholder='ИМЯ')
+        label.col-lg-2.control-label(for='inputSurname') Фамилия 
+        .col-lg-10
+          input#inputSurname.form-control(name='surname', type='text', placeholder='ФАМИЛИЯ')
+        label.col-lg-2.control-label(for='inputFathname') Отчество 
+        .col-lg-10
+          input#inputFathname.form-control(name='fathname', type='text', placeholder='ОТЧЕСТВО')
         label.col-lg-2.control-label(for='inputEmail') Email
-        |       
         .col-lg-10
           input#inputEmail.form-control(type='text', placeholder='Email')
-      |     
       .form-group
-        label.col-lg-2.control-label(for='inputPassword') Password
-        |       
+        label.col-lg-2.control-label Пол 
         .col-lg-10
-          input#inputPassword.form-control(type='password', placeholder='Password')
-          |         
-          .checkbox
+          .radio
             label
-              input(type='checkbox')
-              |  Checkbox
+              input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+              | Мужчина 
+          .radio
+            label
+              input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+              | Женщина
+
+      .form-group
+        label.col-lg-2.control-label(for='inputDate') Дата рождения 
+        .col-lg-10
+          input#inputItem.form-control(type='date', placeholder='Дата рождения')
+     -var list = ['Дата рождения', 'Национальность', 'Телефон', 'Место жительства', 'Светское образование', 'Профессия', 'Место работы', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Носите ли Вы хиджаб или бороду', 'Рост', 'Вес', 'Характер', 'Увлечения', 'Состоите ли Вы в браке', 'Дети','---------- Требования', 'Возраст от и до', 'Рост', 'Вес', 'Национальность', 'Светское образование', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Ношение хиджаба или бороды', 'Характер', 'Дополнительно']
+      each item in list
+        .form-group
+          label.col-lg-2.control-label(for='inputItem')= item 
+          .col-lg-10
+            input#inputItem.form-control(type='text', placeholder='#{item}')
+
+      .form-group
+        .checkbox
+          label
+            input(type='checkbox')
+            |  Checkbox
       |     
       .form-group
         label.col-lg-2.control-label(for='textArea') Textarea
@@ -31,20 +56,6 @@ block content
           |         
           span.help-block
             | A longer block of help text that breaks onto a new line and may extend beyond one line.
-      |     
-      .form-group
-        label.col-lg-2.control-label Radios
-        |       
-        .col-lg-10
-          .radio
-            label
-              input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
-              |             Option one is this
-          |         
-          .radio
-            label
-              input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
-              |             Option two can be something else
       |     
       .form-group
         label.col-lg-2.control-label(for='select') Selects
