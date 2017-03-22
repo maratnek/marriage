@@ -13,7 +13,7 @@ router.get('/registration', function(req, res, next) {
 
 
 // Register
-router.post('/register', (req,res,next)=>{
+router.post('/registration', (req,res,next)=>{
 	console.log('new user add');
 	let newUser = new User({
 		name: req.body.name,

@@ -19,4 +19,25 @@ $(document).ready(() => {
 	// 	// });
 		
 	// });
+	// $('button[type=submit]').submit(()=>{
+		console.log('submit');
+		$.ajax({
+			url: '/registration',
+			type: 'POST'
+			// data: {name: 'value1'}
+		})	
+		.done(function(r, q) {
+			console.log("success");
+			// $('html').load('registration');
+			console.log(r);
+			console.log(q);
+
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	// });
 });

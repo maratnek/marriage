@@ -4,6 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const config = require('./config/database')
+const bpromise = require('bluebird');
+mongoose.Promise = bpromise;
+
+// Connect To Database
+mongoose.connect(config.database);
+
+// On Connection
+mongoose.connection.once('open', () => {
+  console.log('Connected to database ' + config.database);
+});
+
+// mongoose.connection.on('connnected', () => {
+//  console.log('Connected to database' + config.database);
+// });
+
+// On Error 
+mongoose.connection.on('error', (err) => {
+  console.log('Database error:' + err);
+});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
