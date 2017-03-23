@@ -6,4 +6,18 @@ block content
 		h1= title
 		ul
 		each it in person
-			li= it.name
+			//- .panel.panel-default	
+				.panel-heading Person
+				//- .panel-body
+			.panel.panel-default
+				.panel-heading Person Name: #{it.name}
+				.panel-body
+					ul.list-group
+						li.list-group-item
+							| Name #{it.name}
+						li.list-group-item
+							| Last Name #{it.surname}
+						li.list-group-item
+							| Father Name #{it.fathname}
+						li.list-group-item
+							| Sex #{it.sex}
