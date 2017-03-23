@@ -11,6 +11,13 @@ router.get('/registration', function(req, res, next) {
   res.render('registration');
 });
 
+router.get('/persons', function(req, res, next) {
+	User.getUserAll((err, user)=>{
+		if (err) return console.log(err);
+		console.log(user);
+  	res.render('persons', { title: 'Persons', person: user });
+	});
+});
 
 // Register
 router.post('/registration', (req,res,next)=>{
@@ -27,10 +34,10 @@ router.post('/registration', (req,res,next)=>{
 		if(err){
 			res.json({success: false, msg: 'Failed to register user'});
 		} else {
-			res.json({success: true, msg: 'User registered'});
+			// res.json({success: true, msg: 'User registered'});
+		  res.redirect('/');
 		}
 	});
-
 });
 
 module.exports = router;

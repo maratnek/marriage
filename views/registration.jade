@@ -22,19 +22,19 @@ block content
       .form-group
         label.col-lg-2.control-label Пол 
         .col-lg-10
-          .radio
+          .radio.col-xs-offset-2.col-xs-4
             label
-              input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+              input#optionsRadios1(type='radio', name='sex', value='m', checked='')
               | Мужчина 
-          .radio
+          .radio.col-xs-4
             label
-              input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+              input#optionsRadios2(type='radio', name='sex', value='g')
               | Женщина
 
       .form-group
         label.col-lg-2.control-label(for='inputDate') Дата рождения 
         .col-lg-10
-          input#inputItem.form-control(type='date', placeholder='Дата рождения')
+          input#inputItem.form-control(type='date', name='date', placeholder='Дата рождения')
      -var list = ['Дата рождения', 'Национальность', 'Телефон', 'Место жительства', 'Светское образование', 'Профессия', 'Место работы', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Носите ли Вы хиджаб или бороду', 'Рост', 'Вес', 'Характер', 'Увлечения', 'Состоите ли Вы в браке', 'Дети','---------- Требования', 'Возраст от и до', 'Рост', 'Вес', 'Национальность', 'Светское образование', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Ношение хиджаба или бороды', 'Характер', 'Дополнительно']
       each item in list
         .form-group
@@ -89,4 +89,4 @@ block content
         .col-lg-10.col-lg-offset-2
           button.btn.btn-default(type='reset') Cancel
           |         
-          button.btn.btn-primary(type='submit') Submit
+          button.btn.btn-primary(type='submit' formmethod="post") Submit

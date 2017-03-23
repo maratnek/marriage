@@ -32,6 +32,10 @@ module.exports.getUserByUsername = function (username, callback) {
 	User.findOne(query, callback);
 }
 
+module.exports.getUserAll = function (callback) {
+	return User.find(callback);
+}
+
 module.exports.addUser = function(newUser, callback) {
 	newUser.save(callback);
 	// bcrypt.genSalt(10, (err, salt) => {

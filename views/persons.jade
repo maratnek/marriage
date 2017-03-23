@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	.fundament
+	.container.head-page
+		h1= title
+		ul
+		each it in person
+			li= it.name
