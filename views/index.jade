@@ -3,11 +3,13 @@ extends layout
 block content
 	.fundament
 	.container.head-page
-		.jumbotron
+		.jumbotron.opacity-zero
 			h1= title
 			p Welcome to #{title}
 			.row
-				.col-md-6
+				.col-md-4
 					a(class="btn btn-default" href="/registration") Registration New Person
-				.col-md-6
+				.col-md-4
 					a(class="btn btn-default" href="/persons") Person List
+				.col-md-4
+					a(class="btn btn-default" href="/find-person") Find Person

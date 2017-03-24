@@ -11,11 +11,21 @@ router.get('/registration', function(req, res, next) {
   res.render('registration');
 });
 
+router.get('/find-person', function(req, res, next) {
+  res.render('find-person');
+});
+
 router.get('/persons', function(req, res, next) {
 	User.getUserAll((err, user)=>{
 		if (err) return console.log(err);
 		console.log(user);
-  	res.render('persons', { title: 'Persons', person: user });
+  	res.render('persons', { title: 'Persons', person: user.map((it,index)=>{
+  		var p = it;
+  		date = new Date(it.date);
+  		p.dateNew = 4;
+  		console.log(date);
+  		return p;	
+  	}) });
 	});
 });
 
@@ -26,7 +36,9 @@ router.post('/registration', (req,res,next)=>{
 		name: req.body.name,
 		surname: req.body.surname,
 		fathname: req.body.fathname,
-		sex: req.body.sex
+		sex: req.body.sex,
+		date: req.body.date,
+		religion: req.body.religion
 	});
 	console.log(newUser);
 

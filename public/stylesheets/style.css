@@ -8,6 +8,9 @@ body {
 .head-page {
   box-shadow: 0px 10px 20px -8px black; }
 
+.opacity-zero {
+  background-color: transparent; }
+
 .fundament {
   position: fixed;
   top: 0;
@@ -18,8 +21,5 @@ body {
   background-size: 100% auto;
   background-image: url("../images/marriage_bcg.jpg");
   filter: blur(2px) opacity(30%); }
-
-.jumbotron {
-  background-color: transparent; }
 
 /*# sourceMappingURL=style.css.map */

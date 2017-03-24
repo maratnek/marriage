@@ -18,6 +18,14 @@ const UserSchema = mongoose.Schema({
 	sex: {
 		type: String,
 		required: true
+	},
+	religion: {
+		type: String,
+		required: true
+	},
+	date: {
+		type: Date,
+		required: true
 	}
 });
 

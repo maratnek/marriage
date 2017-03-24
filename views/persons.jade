@@ -6,9 +6,6 @@ block content
 		h1= title
 		ul
 		each it in person
-			//- .panel.panel-default	
-				.panel-heading Person
-				//- .panel-body
 			.panel.panel-default
 				.panel-heading Person Name: #{it.name}
 				.panel-body
@@ -21,3 +18,7 @@ block content
 							| Father Name #{it.fathname}
 						li.list-group-item
 							| Sex #{it.sex}
+						li.list-group-item
+							| Religion #{it.religion}
+						li.list-group-item
+							| Date #{it.dateNew}
