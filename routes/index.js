@@ -7,8 +7,19 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Marriage' });
 });
 
+// date format in YYYY-MM-DD
+var dateFormat = (str_date) => {
+	var dl = new Date(str_date);
+	return dl.getFullYear()-12 + '-' 
+				+ ((dl.getMonth()+1)<10 ? '0' + (dl.getMonth()+1) : (dl.getMonth()+1))  + '-' 
+				+ dl.getDate();
+
+}
+
 router.get('/registration', function(req, res, next) {
-  res.render('registration');
+	// var dl = new Date();
+	// var str_date = dl.getFullYear()-12 + '-' + ((dl.getMonth()+1)<10 ? '0' + (dl.getMonth()+1) : (dl.getMonth()+1))  + '-' + dl.getDate();
+  res.render('registration', {dateLocal: dateFormat(Date())});
 });
 
 router.get('/find-person', function(req, res, next) {
@@ -19,11 +30,14 @@ router.get('/persons', function(req, res, next) {
 	User.getUserAll((err, user)=>{
 		if (err) return console.log(err);
 		console.log(user);
-  	res.render('persons', { title: 'Persons', person: user.map((it,index)=>{
+  	res.render('persons', { title: 'Persons',  person: user.map((it,index)=>{
   		var p = it;
   		date = new Date(it.date);
-  		p.dateNew = 4;
-  		console.log(date);
+  		p.yearsOld = date - Date();
+  		console.log(p.yearsOld);
+  		p.dateNew = dateFormat(it.date);
+  		console.log(dateFormat(it.date));
+  		console.log(date.toDateString());
   		return p;	
   	}) });
 	});
@@ -32,7 +46,7 @@ router.get('/persons', function(req, res, next) {
 // Register
 router.post('/registration', (req,res,next)=>{
 	console.log('new user add');
-	let newUser = new User({
+	var newUser = new User({
 		name: req.body.name,
 		surname: req.body.surname,
 		fathname: req.body.fathname,

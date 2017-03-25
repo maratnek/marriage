@@ -35,7 +35,7 @@ block content
       .form-group
         label.col-lg-2.control-label(for='inputDate') Дата рождения 
         .col-lg-10
-          input#inputItem.form-control(type='date', name='date', placeholder='Дата рождения')
+          input#inputItem.form-control(type='date', name='date', placeholder='Дата рождения', min='1900-01-01', max='#{dateLocal}')
 
       .form-group
         label.col-lg-2.control-label(for='select') Вероисповедание
@@ -68,15 +68,15 @@ block content
           span.help-block
             | A longer block of help text that breaks onto a new line and may extend beyond one line.
       |     
-      .form-group
-        label.col-lg-2.control-label(for='select') Вероисповедание
-        .col-lg-10
-          select#select.form-control(name='religion')
-            option(value=islam) Ислам
-            option(value=hristiansvo) Христианство
-            option(value=iudaizm) Иудаизм
-            option(value=buddizm) Буддизм
-          br
+      //- .form-group
+      //-   label.col-lg-2.control-label(for='select') Вероисповедание
+      //-   .col-lg-10
+      //-     select#select.form-control(name='religion')
+      //-       option(value=islam) Ислам
+      //-       option(value=hristianstvo) Христианство
+      //-       option(value=iudaizm) Иудаизм
+      //-       option(value=buddizm) Буддизм
+      //-     br
           |         
           select.form-control(multiple='')
             option 1
