@@ -2,13 +2,17 @@
   "name": "marriage",
   "version": "0.0.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
-    "start": "node ./bin/www --use-strict"
+    "start": "node main.js",
+    "build": "electron-packager . Marriage --overwrite --arch=ia32 --platform=linux"
   },
   "dependencies": {
     "bluebird": "*",
     "body-parser": "*",
     "cookie-parser": "*",
+    "electron": "^1.6.2",
+    "electron-packager": "^8.6.0",
     "express": "*",
     "jade": "*",
     "mongoose": "*",

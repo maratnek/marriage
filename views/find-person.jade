@@ -2,18 +2,29 @@ extends layout
 
 block content
 	.fundament
-	.container.head-page
+	.col-md-6.container.head-page
 		h1 Find Person
 		form
 			.form-group
-				label.col-lg-2.control-label(for='select') Пол
-				.col-lg-10
-				select#select.form-control
-					option Мужчина
-					option Женщина
+				label.col-md-3.control-label(for='select') Я ищу
+				.col-md-9
+					select#select.form-control
+						option Мужчину
+						option Женщину
+			br
 			.form-group
-				label.col-lg-2.control-label(for='select') Пол
-				.col-lg-10
-				select#select.form-control
-					option Мужчина
-					option Женщина
+				label.col-md-3.control-label(for='old') В возрасте
+				.col-lg-9
+					.col-md-6 от 
+						input#inputOld.form-control(name='old_min', type='number', min=12, max=100, value='12')
+					.col-md-6 до 
+						input#inputOld.form-control(name='old_max', type='number', min=12, max=100, value='100')
+			br
+			.form-group
+				label.col-md-3.control-label(for='select') Вероисповедание
+				.col-md-9
+					select#select.form-control(name='religion')
+						option(value=islam) Ислам
+						option(value=hristiansvo) Христианство
+						option(value=iudaizm) Иудаизм
+						option(value=buddizm) Буддизм0

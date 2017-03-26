@@ -6,45 +6,82 @@ block content
   form.form-horizontal
     fieldset
       legend Анкета 
+        .form-group
+          label.col-lg-2.control-label(for='inputName') Имя 
+          .col-lg-10
+            input#inputName.form-control(name='name', type='text', placeholder='ИМЯ')
+          label.col-lg-2.control-label(for='inputSurname') Фамилия 
+          .col-lg-10
+            input#inputSurname.form-control(name='surname', type='text', placeholder='ФАМИЛИЯ')
+          label.col-lg-2.control-label(for='inputFathname') Отчество 
+          .col-lg-10
+            input#inputFathname.form-control(name='fathname', type='text', placeholder='ОТЧЕСТВО')
+          label.col-lg-2.control-label(for='inputEmail') Email
+          .col-lg-10
+            input#inputEmail.form-control(name='email', type='text', placeholder='Email')
+        .form-group
+          label.col-lg-2.control-label Пол 
+          .col-lg-10
+            .radio.col-xs-offset-2.col-xs-4
+              label
+                input#optionsRadios1(type='radio', name='sex', value='m', checked='')
+                | Мужчина 
+            .radio.col-xs-4
+              label
+                input#optionsRadios2(type='radio', name='sex', value='g')
+                | Женщина
 
-      .form-group
-        label.col-lg-2.control-label(for='inputName') Имя 
-        .col-lg-10
-          input#inputName.form-control(name='name', type='text', placeholder='ИМЯ')
-        label.col-lg-2.control-label(for='inputSurname') Фамилия 
-        .col-lg-10
-          input#inputSurname.form-control(name='surname', type='text', placeholder='ФАМИЛИЯ')
-        label.col-lg-2.control-label(for='inputFathname') Отчество 
-        .col-lg-10
-          input#inputFathname.form-control(name='fathname', type='text', placeholder='ОТЧЕСТВО')
-        label.col-lg-2.control-label(for='inputEmail') Email
-        .col-lg-10
-          input#inputEmail.form-control(type='text', placeholder='Email')
-      .form-group
-        label.col-lg-2.control-label Пол 
-        .col-lg-10
-          .radio.col-xs-offset-2.col-xs-4
-            label
-              input#optionsRadios1(type='radio', name='sex', value='m', checked='')
-              | Мужчина 
-          .radio.col-xs-4
-            label
-              input#optionsRadios2(type='radio', name='sex', value='g')
-              | Женщина
+        .form-group
+          label.col-lg-2.control-label(for='inputDate') Дата рождения 
+          .col-lg-10
+            input#inputItem.form-control(type='date', name='date', placeholder='Дата рождения', min='1900-01-01', max='#{dateLocal}')
 
-      .form-group
-        label.col-lg-2.control-label(for='inputDate') Дата рождения 
-        .col-lg-10
-          input#inputItem.form-control(type='date', name='date', placeholder='Дата рождения', min='1900-01-01', max='#{dateLocal}')
+        .form-group
+          label.col-lg-2.control-label(for='select') Вероисповедание
+          .col-lg-10
+            select#select.form-control(name='religion')
+              option(value=islam) Ислам
+              option(value=hristiansvo) Христианство
+              option(value=iudaizm) Иудаизм
+              option(value=buddizm) Буддизм
 
-      .form-group
-        label.col-lg-2.control-label(for='select') Вероисповедание
-        .col-lg-10
-          select#select.form-control(name='religion')
-            option(value=islam) Ислам
-            option(value=hristiansvo) Христианство
-            option(value=iudaizm) Иудаизм
-            option(value=buddizm) Буддизм
+        .form-group
+          label.col-lg-2.control-label(for='nation') Национальность
+          .col-lg-10
+            input#inputNation.form-control(name='nation', type='text', placeholder='Национальность')
+        .form-group
+          label.col-lg-2.control-label(for='telephone') Телефон
+          .col-lg-10
+            input#inputTelephone.form-control(name='telephone', type='number', max='99999999999', placeholder='Телефон')
+        .form-group
+          label.col-lg-2.control-label(for='size') Рост
+          .col-lg-4
+            input#inputSize.form-control(name='size', type='number', max='300', placeholder='Рост')
+            | см
+          label.col-lg-2.control-label(for='weight') Вес
+          .col-lg-4
+            input#inputTelephone.form-control(name='weight', type='number', max='300', placeholder='Вес')
+            | кг
+        .form-group
+          label.col-lg-2.control-label Состоите ли вы в браке? 
+          .col-lg-10
+            .radio.col-xs-offset-2.col-xs-4
+              label
+                input#optionsRadios1(type='radio', name='marriage', value='no', checked='')
+                | Нет 
+            .radio.col-xs-4
+              label
+                input#optionsRadios2(type='radio', name='marriage', value='yes')
+                | Да
+
+     -var list = ['Национальность', 'Место жительства', 'Светское образование', 'Профессия', 'Место работы', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Носите ли Вы хиджаб или бороду', 'Характер', 'Увлечения','Дети', 'Возраст от и до', 'Рост', 'Вес', 'Национальность', 'Светское образование', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Ношение хиджаба или бороды', 'Характер', 'Дополнительно']
+      each item in list
+        .form-group
+          label.col-lg-2.control-label(for='inputItem')= item 
+          .col-lg-10
+            input#inputItem.form-control(type='text', placeholder='#{item}')
+
+    legend Ваши требования к #{sex}
             
      -var list = ['Дата рождения', 'Национальность', 'Телефон', 'Место жительства', 'Светское образование', 'Профессия', 'Место работы', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Носите ли Вы хиджаб или бороду', 'Рост', 'Вес', 'Характер', 'Увлечения', 'Состоите ли Вы в браке', 'Дети','---------- Требования', 'Возраст от и до', 'Рост', 'Вес', 'Национальность', 'Светское образование', 'Вероисповедание', 'Религиозное образование', 'Соблюдение религиозных предписаний', 'Ношение хиджаба или бороды', 'Характер', 'Дополнительно']
       each item in list
