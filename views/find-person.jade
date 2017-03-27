@@ -3,28 +3,68 @@ extends layout
 block content
 	.fundament
 	.col-md-6.container.head-page
-		h1 Find Person
-		form
+		h1 Поиск участника
+		form.form-horizontal
+			fieldset
+				legend Выберите ваши требования:
+					.form-group
+						label.col-md-3.control-label(for='sex') Я ищу
+						.col-md-9
+							select#select.form-control(name='sex')
+								option(value='m') Мужчину
+								option(value='g') Женщину
+					.form-group
+						label.col-md-3.control-label(for='old') В возрасте
+						.col-md-9
+							.col-md-6.control-label от 
+								input#inputOld.form-control(name='old_min', type='number', min=12, max=100, value='12')
+							.col-md-6.control-label до 
+								input#inputOld.form-control(name='old_max', type='number', min=12, max=100, value='100')
+					.form-group
+						label.col-md-3.control-label(for='select') Вероисповедание
+						.col-md-9
+							select#select.form-control(name='religion')
+								option(value=islam) Ислам
+								option(value=hristianstvo) Христианство
+								option(value=iudaizm) Иудаизм
+								option(value=buddizm) Буддизм
+
+					.form-group
+						label.col-sm-6.control-label(for='size') Рост
+							input#inputSize.form-control.col-sm-3(name='size2_min', type='number', min='100', max='300', value='100', placeholder='Рост')
+							input#inputSize.form-control.col-sm-3(name='size2_max', type='number', min='100', max='300', value='300',placeholder='Рост')
+							.help-block.col-sm-6 см
+						label.col-sm-6.control-label(for='weight') Вес
+							input#inputWeight.form-control.col-sm-3(name='weight2_min', type='number', min='30', max='300', value='30',placeholder='Вес')
+							input#inputWeight.form-control.col-sm-3(name='weight2_max', type='number', min='30', max='300', value='300',placeholder='Вес')
+							.help-block.col-sm-6 кг
+
+					.form-group
+						label.control-label.col-md-2 Наличие детей	
+						.col-md-10
+							.col-md-3.radio
+								input(type='radio', name='children', value='no', checked='')
+								| Нет
+							.col-md-3.radio
+								input(type='radio', name='children', value='yes')
+								| Да
+
+					.form-group
+						label.col-lg-2.control-label Состояние бракa? 
+						.col-lg-10
+							.radio.col-md-3
+								input#optionsRadios1(type='radio', name='marriage', value='no', checked='')
+								| Холост | Не замужем 
+							.radio.col-md-3
+								input#optionsRadios2(type='radio', name='marriage', value='yes')
+								| Женат  
+							.radio.col-md-3
+								input#optionsRadios2(type='radio', name='marriage', value='divorced')
+								| Разведен | Разведена
+
+			//------------Submit------------ 
 			.form-group
-				label.col-md-3.control-label(for='select') Я ищу
-				.col-md-9
-					select#select.form-control
-						option Мужчину
-						option Женщину
-			br
-			.form-group
-				label.col-md-3.control-label(for='old') В возрасте
-				.col-lg-9
-					.col-md-6 от 
-						input#inputOld.form-control(name='old_min', type='number', min=12, max=100, value='12')
-					.col-md-6 до 
-						input#inputOld.form-control(name='old_max', type='number', min=12, max=100, value='100')
-			br
-			.form-group
-				label.col-md-3.control-label(for='select') Вероисповедание
-				.col-md-9
-					select#select.form-control(name='religion')
-						option(value=islam) Ислам
-						option(value=hristiansvo) Христианство
-						option(value=iudaizm) Иудаизм
-						option(value=buddizm) Буддизм0
+				.col-lg-10.col-lg-offset-2
+					button.btn.btn-default(type='reset') Сбросить
+					|         
+					button.btn.btn-primary(type='submit' formmethod="post") Поиск
