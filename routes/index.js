@@ -117,7 +117,7 @@ router.post('/find-person', (req,res,next)=>{
 					it.dateNew = dateFormat(date);
 					if ((it.old <= fp.old_max && it.old >= fp.old_min) && (it.size <= fp.size2_max && it.size >= fp.size2_min) &&
 					    (it.weight <= fp.weight2_max && it.weight >= fp.weight2_min) && it.marriage == fp.marriage)
-					console.log('size');
+					console.log(fp);
 
 						if ((it.children == 0 && fp.children == 'no') || (it.children > 0 && fp.children == 'yes')) {
 							console.log(it);
