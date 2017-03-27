@@ -30,6 +30,24 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
+ * Require Browsersync
+ */
+var browserSync = require('browser-sync').create();
+
+/**
+ * Run Browsersync with server config
+ */
+browserSync.init(null, {
+    // proxy: "http://localhost:3000",
+    port: 3000 ,
+    server: ".",
+    files: ["views/*.*", "public/*"]
+});
+
+browserSync.reload(["views/*.*", "public/*"]
+);
+
+/**
  * Normalize a port into a number, string, or false.
  */
 

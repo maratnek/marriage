@@ -17,10 +17,14 @@ block content
 						li.list-group-item
 							| Отчество | #{it.fathname}
 						li.list-group-item
-							| Пол | #{it.sex}
+							if it.sex == 'm'
+								| Пол |	мужской 
+							else
+								| Пол |	женский	
 						li.list-group-item
 							| Религия | #{it.religion}
 						li.list-group-item
 							| День рождения | #{it.dateNew}
 						li.list-group-item
 							| Возраст | #{it.yearsOld}
+					a.btn.btn-info(href='/person/id#{it.id}') Подробнее

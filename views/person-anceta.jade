@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	.fundament
+	.container.head-page
+		h1= title
+		ul
+		.panel.panel-primary
+			.panel-heading #{it.name} #{it.surname} #{it.fathname}
+			.panel-body
+				.container
+					.col-md-8
+						ul.list-group
+							li.list-group-item
+								.container
+									.col-md-3 Имя 
+									.col-md-8 | #{it.name}
+							li.list-group-item
+								.container
+									.col-md-3 Фамилия 
+									.col-md-8 | #{it.surname}
+							li.list-group-item
+								.container
+								| Отчество | #{it.fathname}
+							li.list-group-item
+								| Пол | #{it.sex}
+							li.list-group-item
+								| Религия | #{it.religion}
+							li.list-group-item
+								| День рождения | #{it.dateNew}
+							li.list-group-item
+								| Возраст | #{it.yearsOld}

@@ -29,6 +29,16 @@ router.get('/find-person', function(req, res, next) {
   res.render('find-person');
 });
 
+router.get('/person/id:token', function(req, res, next) {
+	console.log(req.params.token);
+	User.getUserById(req.params.token, (err, user)=>{
+		if (err) return console.log(err);
+		console.log(user);
+	  res.render('person-anceta', { title: 'Анкета участника', it: user });
+	});
+});
+
+
 router.get('/persons', function(req, res, next) {
 	User.getUserAll((err, user)=>{
 		if (err) return console.log(err);
@@ -46,7 +56,7 @@ router.get('/persons', function(req, res, next) {
 router.post('/registration', (req,res,next)=>{
 	console.log('new user add');
 	console.log(req.body);
-	var newUser = new User({
+	let newUser = new User({
 		name: 									req.body.name,
 		surname: 								req.body.surname,
 		fathname: 							req.body.fathname,
