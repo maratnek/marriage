@@ -37,7 +37,7 @@ gulp.task('nodemon-rebuild', function () {
 
 gulp.task('browser-sync', ['sass', 'js', 'nodemon'], function() {
     browserSync.init(null, {
-        proxy: "http://localhost:5000",
+        proxy: "http://localhost:3000",
         notify: true,
         port: 7000
     });
@@ -60,9 +60,9 @@ gulp.task('sass', function () {
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'], { cascade: true }))
-        .pipe(gulp.dest('public/stylesheets/*.css'))
+        .pipe(gulp.dest('public/stylesheets'))
         .pipe(reload({stream:true}))
-        .pipe(gulp.dest('public/stylesheets/*.css'))
+        .pipe(gulp.dest('public/stylesheets'))
         ;
 });
 
@@ -72,7 +72,7 @@ gulp.task('sass', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('public/stylesheets/**', ['sass']);
+    gulp.watch('public/stylesheets/*', ['sass','nodemon-rebuild']);
     gulp.watch('public/javascripts/**', ['js']);
     // gulp.watch(['*.html', 'jadefiles/*'], ['nodemon-rebuild']);
     gulp.watch(["*.html", "views/**"]).on("change", reload);

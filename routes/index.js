@@ -33,6 +33,9 @@ router.get('/person/id:token', function(req, res, next) {
 	console.log(req.params.token);
 	User.getUserById(req.params.token, (err, user)=>{
 		if (err) return console.log(err);
+		var date = new Date(user.date);
+		user.old = calculateAge(date);
+		user.dateNew = dateFormat(date);
 		console.log(user);
 	  res.render('person-anceta', { title: 'Анкета участника', it: user });
 	});
@@ -123,14 +126,10 @@ router.post('/find-person', (req,res,next)=>{
 				if (fp.religion == it.religion) {
 					var date = new Date(it.date);
 					it.old = calculateAge(date);
-					console.log(it.old);
 					it.dateNew = dateFormat(date);
 					if ((it.old <= fp.old_max && it.old >= fp.old_min) && (it.size <= fp.size2_max && it.size >= fp.size2_min) &&
 					    (it.weight <= fp.weight2_max && it.weight >= fp.weight2_min) && it.marriage == fp.marriage)
-					console.log(fp);
-
 						if ((it.children == 0 && fp.children == 'no') || (it.children > 0 && fp.children == 'yes')) {
-							console.log(it);
 							return it;	
 						}
 				}

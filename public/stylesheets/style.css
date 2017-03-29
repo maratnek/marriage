@@ -6,7 +6,8 @@ body {
   padding: 50px; }
 
 .head-page {
-  box-shadow: 0px 10px 20px -8px black; }
+  -webkit-box-shadow: 0px 10px 20px -8px black;
+          box-shadow: 0px 10px 20px -8px black; }
 
 .opacity-zero {
   background-color: transparent; }
@@ -20,6 +21,5 @@ body {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-image: url("../images/marriage_bcg.jpg");
-  filter: blur(2px) opacity(30%); }
-
-/*# sourceMappingURL=style.css.map */
+  -webkit-filter: blur(2px) opacity(30%);
+          filter: blur(2px) opacity(30%); }

@@ -4,29 +4,180 @@ block content
 	.fundament
 	.container.head-page
 		h1= title
-		ul
 		.panel.panel-primary
 			.panel-heading #{it.name} #{it.surname} #{it.fathname}
 			.panel-body
-				.container
-					.col-md-8
-						ul.list-group
-							li.list-group-item
-								.container
-									.col-md-3 Имя 
-									.col-md-8 | #{it.name}
-							li.list-group-item
-								.container
-									.col-md-3 Фамилия 
-									.col-md-8 | #{it.surname}
-							li.list-group-item
-								.container
-								| Отчество | #{it.fathname}
-							li.list-group-item
-								| Пол | #{it.sex}
-							li.list-group-item
-								| Религия | #{it.religion}
-							li.list-group-item
-								| День рождения | #{it.dateNew}
-							li.list-group-item
-								| Возраст | #{it.yearsOld}
+				ul.list-group
+					h4 Основные данные
+					li.list-group-item
+						.container
+							.col-xs-2 Имя 
+							.col-xs-10.npanel #{it.name} 
+					li.list-group-item
+						.container
+							.col-xs-2 Фамилия 
+							.col-xs-10 #{it.surname}
+					li.list-group-item
+						.container
+							.col-xs-2 Отчество 
+							.col-xs-10 #{it.fathname} 
+					li.list-group-item
+						.container
+							.col-xs-2 Пол
+							.col-xs-10 
+								if it.sex == 'm'
+									| мужской 
+								else
+									| женский	
+					li.list-group-item
+						.container
+							.col-xs-2 Религия 
+							.col-xs-10 #{it.religion} 
+					li.list-group-item
+						.container
+							.col-xs-2 День рождения 
+							.col-xs-10 #{it.dateNew} 
+					li.list-group-item
+						.container
+							.col-xs-2 Возраст 
+							.col-xs-10 #{it.old} 
+					li.list-group-item
+						.container
+							.col-xs-2 Национальность 
+							.col-xs-10 #{it.nation} 
+					li.list-group-item
+						.container
+							.col-xs-2 Телефон 
+								span.glyphicon.glyphicon-earphone
+							.col-xs-10 #{it.telephone} 
+					br
+					h4 Биометрические данные
+					li.list-group-item
+						.container
+							.col-xs-2 Рост 
+							.col-xs-10 #{it.size} см
+					li.list-group-item
+						.container
+							.col-xs-2 Вес
+							.col-xs-10 #{it.weight} кг
+					li.list-group-item
+						.container
+							.col-xs-2 Семейное положение 
+							.col-xs-10  
+								if it.marriage == 'yes'
+									|	женат 
+								else if it.marriage == 'no'
+									if it.sex == 'm' 	
+										| холост
+									else
+										| не замежем
+								else if it.marriage == 'divorced'
+									if it.sex == 'm' 	
+										| разведен
+									else
+										| разведена
+					li.list-group-item
+						.container
+							.col-xs-2 Дети 
+							.col-xs-10 #{it.children} 
+					li.list-group-item
+						.container
+							.col-xs-2 Место жительства 
+							.col-xs-10 #{it.live_place} 
+					li.list-group-item
+						.container
+							.col-xs-2 Светское образование 
+							.col-xs-10 #{it.svet_edication} 
+					li.list-group-item
+						.container
+							.col-xs-2 Профессия
+							.col-xs-10 #{it.profession} 
+					li.list-group-item
+						.container
+							.col-xs-2 Место работы
+							.col-xs-10 #{it.work_place} 
+					li.list-group-item
+						.container
+							.col-xs-2 Религиозное образование 
+							.col-xs-10 #{it.religion_edication} 
+					li.list-group-item
+						.container
+							.col-xs-2 Соблюдение религиозных предписаний 
+							.col-xs-10 #{it.observing} 
+					li.list-group-item
+						.container
+							.col-xs-2 Носите ли Вы хиджаб или бороду 
+							.col-xs-10 #{it.attribute} 
+					li.list-group-item
+						.container
+							.col-xs-2 Характер 
+							.col-xs-10 #{it.character} 
+					li.list-group-item
+						.container
+							.col-xs-2 Увлечения 
+							.col-xs-10 #{it.hobby} 
+					h4 Требования к противоположному полу
+					li.list-group-item
+						.container
+							.col-xs-2 Возраст
+							.col-xs-10 от #{it.old_min} до #{it.old_max} лет
+					li.list-group-item
+						.container
+							.col-xs-2 Религия 
+							.col-xs-10 #{it.religion2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Национальность 
+							.col-xs-10 #{it.nation} 
+					li.list-group-item
+						.container
+							.col-xs-2 Рост 
+							.col-xs-10 от #{it.size2_min} до #{it.size2_max} см
+					li.list-group-item
+						.container
+							.col-xs-2 Вес
+							.col-xs-10 от #{it.weight2_min} до #{it.weight2_max} кг
+					li.list-group-item
+						.container
+							.col-xs-2 Семейное положение 
+							.col-xs-10  
+								if it.marriage2 == 'yes'
+									|	женат 
+								else if it.marriage2 == 'no'
+									if it.sex == 'm' 	
+										| не замежем
+									else
+										| холост
+								else if it.marriage2 == 'divorced'
+									if it.sex == 'm' 	
+										| разведена 
+									else
+										| разведен
+					li.list-group-item
+						.container
+							.col-xs-2 Дети 
+							.col-xs-10 #{it.children2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Светское образование 
+							.col-xs-10 #{it.svet_edication2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Религиозное образование 
+							.col-xs-10 #{it.religion_edication2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Соблюдение религиозных предписаний 
+							.col-xs-10 #{it.observing2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Носите ли Вы хиджаб или бороду 
+							.col-xs-10 #{it.attribute2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Характер 
+							.col-xs-10 #{it.character2} 
+					li.list-group-item
+						.container
+							.col-xs-2 Увлечения 
+							.col-xs-10 #{it.dopoln} 
