@@ -4,8 +4,8 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "build": "electron-packager . Marriage --overwrite --arch=ia32 --platform=linux"
+    "start": "electron .",
+    "build": "electron-packager . Marriage --overwrite --arch=ia32 --platform=win32"
   },
   "dependencies": {
     "bluebird": "*",
@@ -18,7 +18,8 @@
     "jade": "*",
     "mongoose": "*",
     "morgan": "*",
-    "node-sass-middleware": "*"
+    "node-sass-middleware": "*",
+    "serve-favicon": "^2.4.2"
   },
   "devDependencies": {
     "child_process": "^1.0.2",
